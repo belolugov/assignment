@@ -1,31 +1,33 @@
 <template>
   <div id="gallery" class="desktop">
     <div
+      @click="$bvModal.show('modal')"
       v-for="product in products"
       :key="product.id"
-      class="product-card"
-      :to="{name:'productPage', params:{id:product.id}}">
-      <img :src="product.image">
+      class="product-card">
+      <img :src="product.masterData.current.masterVariant.images[0].url">
       <div class="info">
-        <h5>{{ product.id }}</h5>
-        <p>${{ product.price }} </p>
+        <h5>{{ product.masterData.current.name.en }}</h5>
         <hr>
       </div>
     </div>
+    <Modal />
   </div>
 </template>
 
 <script>
+import Modal from './Modal.vue'
 export default {
   name: 'Gallery',
   props: ['products'],
-  components: {},
+  components: {
+    Modal
+  },
   data () {
     return {
     }
   },
-  created () {
-    console.log(this.products)
+  methods: {
   }
 }
 </script>

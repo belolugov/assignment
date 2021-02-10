@@ -5,28 +5,28 @@
 </template>
 
 <script>
-// import axios from 'axios'
 export default {
   data () {
     return {
-      products: this.products
+      products: []
     }
   },
   fetch () {
     this.getToken().then((res) => {
-      console.log(res)
+      // console.log(res)
       this.token = res
       this.getProducts().then((res) => {
         this.products = res
+        // console.log(this.products)
       })
     })
   },
   mounted () {
-    const data = this
-    window.onscroll = function (ev) {
+    // const data = this
+    window.onscroll = () => {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        data.getProducts(0, data.products.length + 10).then((res) => {
-          data.products = res
+        this.getProducts(0, this.products.length + 10).then((res) => {
+          this.products = res
         })
       }
     }
@@ -40,7 +40,7 @@ export default {
         { headers })
       return tokenRes.data.access_token
     },
-    async getProducts (offset = 0, limit = 10) {
+    async getProducts (offset = 0, limit = 12) {
       const headers = {
         Authorization: 'Bearer ' + this.token
       }
