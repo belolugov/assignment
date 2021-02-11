@@ -1,7 +1,7 @@
 <template>
   <div id="gallery" class="desktop">
     <div
-      @click="$bvModal.show('modal')"
+      @click="showModal(product)"
       v-for="product in products"
       :key="product.id"
       class="product-card">
@@ -11,7 +11,7 @@
         <hr>
       </div>
     </div>
-    <Modal />
+    <Modal :modalInfo="modalInfo"/>
   </div>
 </template>
 
@@ -25,9 +25,14 @@ export default {
   },
   data () {
     return {
+      modalInfo: ''
     }
   },
   methods: {
+    showModal (product) {
+      this.modalInfo = product
+      this.$bvModal.show('modal')
+    }
   }
 }
 </script>
