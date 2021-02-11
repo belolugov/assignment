@@ -1,7 +1,8 @@
 <template>
   <div>
-    <b-modal id="modal" title="BootstrapVue">
-      <p class="my-4">Hey Modal</p>
+    <b-modal id="modal" :title="modalInfo==='' ? '' : modalInfo.masterData.current.name.en">
+      <img :src="modalInfo==='' ? '' : modalInfo.masterData.current.masterVariant.images[0].url" alt="">
+      <p>{{ modalInfo==='' ? '' : modalInfo.masterData.current.description.en }}</p>
     </b-modal>
   </div>
 </template>
@@ -18,5 +19,11 @@ export default {
 </script>
 
 <style>
+  #modal {
+    text-align: center;
+  }
+  img {
+    width: 95%;
+  }
 
 </style>

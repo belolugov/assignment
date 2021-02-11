@@ -1,9 +1,10 @@
 <template>
   <div id="gallery" class="desktop">
     <div
-      @click="showModal(product)"
       v-for="product in products"
       :key="product.id"
+      @click="showModal(product)"
+      v-b-modal="'modal'"
       class="product-card">
       <img :src="product.masterData.current.masterVariant.images[0].url">
       <div class="info">
