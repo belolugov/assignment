@@ -1,6 +1,6 @@
 <template>
   <b-container id="footer" fluid class="text-center">
-    <div my-auto>{{ new Date().getFullYear() }} Copyright. iCards</div>
+    <div class="mx-auto" my-auto>{{ new Date().getFullYear() }} Copyright. NotNuts.com</div>
   </b-container>
 </template>
 
