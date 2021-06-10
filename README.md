@@ -1,4 +1,4 @@
-# assignment
+# Infinite scroll
 
 ## Build Setup
 
